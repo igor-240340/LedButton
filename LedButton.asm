@@ -26,8 +26,8 @@ WaitStart:  sbic PIND, START_PIN
 Loop:       out PORTB, ledArray
             ldi r19, 100                ; 1
 
-Dec0:       ldi r17, 246                ; 1 + (r19 - 1)
-Dec1:       ldi r18, 26                 ; [1 + (r17 - 1)] * r19
+Dec0:       ldi r17, 249                ; 1 + (r19 - 1)
+Dec1:       ldi r18, 106                ; [1 + (r17 - 1)] * r19
 Dec2:       dec r18                     ; r18 * r17 * r19
             brne Dec2                   ; (r18 * 2 - 1) * r17 * r19
             dec r17                     ; r17 * r19
@@ -47,7 +47,7 @@ M:          ser tmp
             ror ledArray
             rjmp Loop
 
-LeftShift:  sbrs ledArray, 7
+LeftShift:  sbrs ledArray, 5
             clt
             rol ledArray
             rjmp Loop
